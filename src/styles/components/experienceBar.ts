@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const ContainerExperienceBar = styled.header`
   display: flex;
@@ -30,4 +30,4 @@ export const ContainerExperienceBar = styled.header`
     top: 12px;
     transform: translateX(-50%);
   }
-`
+`;

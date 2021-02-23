@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   * {
@@ -51,7 +51,7 @@ a {
     color: inherit;
     text-decoration: none;
 }
-`
+`;
 
 export const Container = styled.div`
   height: 100vh;
@@ -60,5 +60,4 @@ export const Container = styled.div`
     padding: 2.5rem 2rem;
     display: flex;
     flex-direction: column;
-`
-
+`;

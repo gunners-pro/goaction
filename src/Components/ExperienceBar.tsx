@@ -1,6 +1,6 @@
-import { ContainerExperienceBar } from '../styles/components/experienceBar'
+import { ContainerExperienceBar } from '../styles/components/experienceBar';
 
-export function ExperienceBar() {
+export function ExperienceBar(): JSX.Element {
   return (
     <ContainerExperienceBar>
       <span>0 xp</span>
