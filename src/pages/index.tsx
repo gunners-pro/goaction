@@ -1,3 +1,4 @@
+import CompletedChallenges from '../Components/CompletedChallenges';
 import ExperienceBar from '../Components/ExperienceBar';
 import Profile from '../Components/Profile';
 
@@ -13,6 +14,7 @@ export default function Home() {
       <MainContent>
         <LeftContent>
           <Profile />
+          <CompletedChallenges />
         </LeftContent>
 
         <div>algo</div>
