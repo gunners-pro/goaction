@@ -1,7 +1,7 @@
 import Head from 'next/head';
-import { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 
+import { useEffect, useState } from 'react';
 import GlobalStyle from '../styles/global';
 import light from '../styles/themes/light';
 import dark from '../styles/themes/dark';
@@ -18,10 +18,16 @@ import {
   Container, MainContent, LeftContent,
 } from '../styles/pages/index';
 
-export default function Home() {
+const Home = () => {
   const [theme, setTheme] = useState(light);
 
+  function saveThemeLocalStorage(name: string) {
+    localStorage.setItem('@GoAction:theme', name);
+  }
+
   function toggleTheme(title: string) {
+    saveThemeLocalStorage(title);
+
     if (title === 'light') {
       setTheme(light);
     } else if (title === 'dark') {
@@ -32,6 +38,20 @@ export default function Home() {
       setTheme(darkgrey);
     }
   }
+
+  useEffect(() => {
+    const localTheme = localStorage.getItem('@GoAction:theme');
+
+    if (localTheme === 'light') {
+      setTheme(light);
+    } else if (localTheme === 'dark') {
+      setTheme(dark);
+    } else if (localTheme === 'pink') {
+      setTheme(pink);
+    } else if (localTheme === 'darkgrey') {
+      setTheme(darkgrey);
+    }
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
@@ -57,4 +77,6 @@ export default function Home() {
       </Container>
     </ThemeProvider>
   );
-}
+};
+
+export default Home;

@@ -1,9 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { IoPlaySharp, IoCloseOutline } from 'react-icons/io5';
+import { HiCheckCircle } from 'react-icons/hi';
+import { ThemeContext } from 'styled-components';
 import { CountdownContainer, Button } from '../styles/components/countdown';
 
 let countdownTimeout: NodeJS.Timeout;
 
 export default function Countdown() {
+  const { colors } = useContext(ThemeContext);
   const [time, setTime] = useState(0.1 * 60);
   const [isActive, setIsActive] = useState(false);
   const [hasFinished, setHasFinished] = useState(false);
@@ -50,8 +54,9 @@ export default function Countdown() {
       </CountdownContainer>
 
       {hasFinished ? (
-        <Button disabled>
+        <Button hasBorderBottom disabled>
           Ciclo Encerrado
+          <HiCheckCircle color={colors.primary} size={22} />
         </Button>
       )
         : (
@@ -59,11 +64,13 @@ export default function Countdown() {
             {isActive ? (
               <Button className="countdownActive" onClick={resetCountdown} type="button">
                 Abandonar ciclo
+                <IoCloseOutline size={22} />
               </Button>
             )
               : (
                 <Button onClick={startCountdown} type="button">
                   Iniciar um ciclo
+                  <IoPlaySharp size={22} />
                 </Button>
               )}
           </>

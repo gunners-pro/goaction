@@ -1,4 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+interface ButtonProps {
+  hasBorderBottom?: boolean;
+}
 
 export const CountdownContainer = styled.div`
   display: flex;
@@ -37,7 +41,7 @@ export const CountdownContainer = styled.div`
   }
 `;
 
-export const Button = styled.button`
+export const Button = styled.button<ButtonProps>`
   width: 100%;
   height: 5rem;
   margin-top: 2rem;
@@ -51,6 +55,10 @@ export const Button = styled.button`
   font-size: 1.25rem;
   font-weight: 600;
   transition: background-color 0.2s;
+
+  ${(props) => props.hasBorderBottom && css`
+    border-bottom: 5px solid ${({ theme }) => theme.colors.primary} ;
+  `}
 
   &:disabled {
     background: var(--white);
@@ -70,5 +78,9 @@ export const Button = styled.button`
   &.countdownActive:not(:disabled):hover {
     background: var(--red);
     color: var(--white);
+  }
+
+  & > svg {
+    margin-left: 1rem;
   }
 `;
