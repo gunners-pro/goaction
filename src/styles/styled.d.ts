@@ -10,6 +10,7 @@ declare module 'styled-components' {
       grayBar: string;
       other: string;
       text: string;
+      textDark?: string;
       title: string;
       background: string;
     }

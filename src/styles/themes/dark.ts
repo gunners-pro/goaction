@@ -7,6 +7,7 @@ export default {
     grayBar: '#3d3d3d',
     other: '#011638',
     text: '#EEF0F2',
+    textDark: '#999',
     title: '#E13700',
     background: '#141414',
   },

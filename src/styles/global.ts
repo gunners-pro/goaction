@@ -12,6 +12,7 @@ export default createGlobalStyle`
     --gray-line: #dcdde0;
     --text-highlight: #b3b9ff;
     --red: #e83f5b;
+    --green: #4cd62b;
     --blue-twitter: #2aa9e0;
 }
 

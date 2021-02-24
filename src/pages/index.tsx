@@ -17,6 +17,7 @@ import Profile from '../Components/Profile';
 import {
   Container, MainContent, LeftContent,
 } from '../styles/pages/index';
+import ChallengeBox from '../Components/ChallengeBox';
 
 const Home = () => {
   const [theme, setTheme] = useState(light);
@@ -71,7 +72,9 @@ const Home = () => {
             <Countdown />
           </LeftContent>
 
-          <div>algo</div>
+          <div>
+            <ChallengeBox />
+          </div>
         </MainContent>
 
       </Container>
