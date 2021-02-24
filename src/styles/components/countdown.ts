@@ -52,7 +52,23 @@ export const Button = styled.button`
   font-weight: 600;
   transition: background-color 0.2s;
 
-  &:hover {
+  &:disabled {
+    background: var(--white);
+    color: var(--title);
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled):hover {
     background: var(--blue-dark);
+  }
+
+  &.countdownActive {
+    background: var(--white);
+    color: var(--title);
+  }
+
+  &.countdownActive:not(:disabled):hover {
+    background: var(--red);
+    color: var(--white);
   }
 `;
