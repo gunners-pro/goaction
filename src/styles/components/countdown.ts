@@ -5,7 +5,7 @@ export const CountdownContainer = styled.div`
   align-items: center;
   font-family: Rajdhani;
   font-weight: 600;
-  color: var(--title);
+  color: ${(props) => props.theme.colors.title};
 
   > div {
     flex: 1;
@@ -46,7 +46,7 @@ export const Button = styled.button`
   justify-content: center;
   border: 0;
   border-right: 5px;
-  background: var(--blue);
+  background: ${(props) => props.theme.colors.primary};
   color: var(--white);
   font-size: 1.25rem;
   font-weight: 600;
@@ -54,17 +54,17 @@ export const Button = styled.button`
 
   &:disabled {
     background: var(--white);
-    color: var(--title);
+    color: ${(props) => props.theme.colors.title};;
     cursor: not-allowed;
   }
 
   &:not(:disabled):hover {
-    background: var(--blue-dark);
+    background: ${(props) => props.theme.colors.primaryHover};
   }
 
   &.countdownActive {
     background: var(--white);
-    color: var(--title);
+    color: ${(props) => props.theme.colors.title};;
   }
 
   &.countdownActive:not(:disabled):hover {

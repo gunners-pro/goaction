@@ -35,8 +35,8 @@ export default createGlobalStyle`
 
 body {
 
-    background-color: var(--background);
-    color: var(--text);
+    background-color: ${(props) => props.theme.colors.background};
+    color: ${(props) => props.theme.colors.text};
 }
 
 body, input, textarea, button {
