@@ -3,11 +3,12 @@ import { ThemeContext } from 'styled-components';
 import { Container, CircleButton } from '../styles/components/themePalette';
 
 interface ThemePalleteProps {
-  toggleTheme(): void;
+  toggleTheme(title: string): void;
 }
 
 const ThemePallete: React.FC<ThemePalleteProps> = ({ toggleTheme }) => {
   const { title } = useContext(ThemeContext);
+
   return (
     <Container>
       <p>Escolha seu tema favorito: </p>
@@ -17,7 +18,7 @@ const ThemePallete: React.FC<ThemePalleteProps> = ({ toggleTheme }) => {
             if (title === 'light') {
               //
             } else {
-              toggleTheme();
+              toggleTheme('light');
             }
           }}
           selected={title === 'light'}
@@ -28,11 +29,35 @@ const ThemePallete: React.FC<ThemePalleteProps> = ({ toggleTheme }) => {
             if (title === 'dark') {
               //
             } else {
-              toggleTheme();
+              toggleTheme('dark');
             }
           }}
           selected={title === 'dark'}
-          style={{ background: 'linear-gradient( 90deg, #141414 50%, #5965e0 50%)' }}
+          style={{ background: 'linear-gradient( 90deg, #141414 50%, #E13700 50%)' }}
+        />
+
+        <CircleButton
+          onClick={() => {
+            if (title === 'pink') {
+              //
+            } else {
+              toggleTheme('pink');
+            }
+          }}
+          selected={title === 'pink'}
+          style={{ background: 'linear-gradient( 90deg, #FFE5D9 50%, #F4ACB7 50%)' }}
+        />
+
+        <CircleButton
+          onClick={() => {
+            if (title === 'darkgrey') {
+              //
+            } else {
+              toggleTheme('darkgrey');
+            }
+          }}
+          selected={title === 'darkgrey'}
+          style={{ background: 'linear-gradient( 90deg, #353c44 50%, #5a5dac 50%)' }}
         />
       </section>
     </Container>

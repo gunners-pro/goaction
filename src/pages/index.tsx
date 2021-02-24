@@ -5,6 +5,8 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyle from '../styles/global';
 import light from '../styles/themes/light';
 import dark from '../styles/themes/dark';
+import pink from '../styles/themes/pink';
+import darkgrey from '../styles/themes/darkgrey';
 
 import CompletedChallenges from '../Components/CompletedChallenges';
 import Countdown from '../Components/Countdown';
@@ -19,11 +21,15 @@ import {
 export default function Home() {
   const [theme, setTheme] = useState(light);
 
-  function toggleTheme() {
-    if (theme.title === 'light') {
-      setTheme(dark);
-    } else {
+  function toggleTheme(title: string) {
+    if (title === 'light') {
       setTheme(light);
+    } else if (title === 'dark') {
+      setTheme(dark);
+    } else if (title === 'pink') {
+      setTheme(pink);
+    } else if (title === 'darkgrey') {
+      setTheme(darkgrey);
     }
   }
 

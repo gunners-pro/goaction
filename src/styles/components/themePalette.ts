@@ -28,8 +28,10 @@ export const CircleButton = styled.button<CircleButtonProps>`
   border-radius: 50%;
   outline: none;
   border: none;
+  transition: transform 0.3s;
 
   ${(props) => props.selected && css`
-  border: 2.5px solid red;
+    border: 2.5px solid red;
+    transform: scale(1.2, 1.2);
   `}
 `;
