@@ -1,6 +1,10 @@
+import ChallengesProvider from '../contexts/ChallengesContext';
+
 function MyApp({ Component, pageProps }): JSX.Element {
   return (
-    <Component {...pageProps} />
+    <ChallengesProvider>
+      <Component {...pageProps} />
+    </ChallengesProvider>
   );
 }
 

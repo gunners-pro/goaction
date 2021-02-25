@@ -3,11 +3,13 @@ import { IoPlaySharp, IoCloseOutline } from 'react-icons/io5';
 import { HiCheckCircle } from 'react-icons/hi';
 import { ThemeContext } from 'styled-components';
 import { CountdownContainer, Button } from '../styles/components/countdown';
+import { ChallengesContext } from '../contexts/ChallengesContext';
 
 let countdownTimeout: NodeJS.Timeout;
 
 export default function Countdown() {
   const { colors } = useContext(ThemeContext);
+  const { startNewChallenge } = useContext(ChallengesContext);
   const [time, setTime] = useState(0.1 * 60);
   const [isActive, setIsActive] = useState(false);
   const [hasFinished, setHasFinished] = useState(false);
@@ -36,8 +38,9 @@ export default function Countdown() {
     } else if (isActive && time === 0) {
       setHasFinished(true);
       setIsActive(false);
+      startNewChallenge();
     }
-  }, [isActive, time]);
+  }, [isActive, time, startNewChallenge]);
 
   return (
     <>

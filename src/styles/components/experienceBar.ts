@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 
-export const ContainerExperienceBar = styled.header`
+interface ContainerProps {
+  percentToNextLevel: number;
+}
+
+export const ContainerExperienceBar = styled.header<ContainerProps>`
   display: flex;
   align-items: center;
+  margin-bottom: 2.5rem;
 
   span {
     font-size: 1rem;
@@ -18,7 +23,7 @@ export const ContainerExperienceBar = styled.header`
   }
 
   > div > div {
-    width: 50%;
+    width: ${({ percentToNextLevel }) => percentToNextLevel}%;
     height: 4px;
     border-radius: 4px;
     background-color: ${(props) => props.theme.colors.primary};
@@ -26,7 +31,7 @@ export const ContainerExperienceBar = styled.header`
 
   > div > span {
     position: absolute;
-    left: 50%;
+    left: ${({ percentToNextLevel }) => percentToNextLevel}%;
     top: 12px;
     transform: translateX(-50%);
   }
