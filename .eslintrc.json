@@ -22,6 +22,7 @@
     "react-hooks"
   ],
   "rules": {
+    "no-new": "off",
     "no-restricted-properties": "off",
     "import/prefer-default-export": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
