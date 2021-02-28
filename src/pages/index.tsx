@@ -18,6 +18,7 @@ import {
   Container, MainContent, LeftContent,
 } from '../styles/pages/index';
 import ChallengeBox from '../Components/ChallengeBox';
+import CountdownProvider from '../contexts/CountdownContext';
 
 const Home = () => {
   const [theme, setTheme] = useState(light);
@@ -65,17 +66,19 @@ const Home = () => {
         <ThemePallete toggleTheme={toggleTheme} />
         <ExperienceBar />
 
-        <MainContent>
-          <LeftContent>
-            <Profile />
-            <CompletedChallenges />
-            <Countdown />
-          </LeftContent>
+        <CountdownProvider>
+          <MainContent>
+            <LeftContent>
+              <Profile />
+              <CompletedChallenges />
+              <Countdown />
+            </LeftContent>
 
-          <div>
-            <ChallengeBox />
-          </div>
-        </MainContent>
+            <div>
+              <ChallengeBox />
+            </div>
+          </MainContent>
+        </CountdownProvider>
 
       </Container>
     </ThemeProvider>
