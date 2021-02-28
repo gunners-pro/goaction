@@ -1,7 +1,8 @@
+import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
-
 import { useEffect, useState } from 'react';
+
 import GlobalStyle from '../styles/global';
 import light from '../styles/themes/light';
 import dark from '../styles/themes/dark';
@@ -19,8 +20,15 @@ import {
 } from '../styles/pages/index';
 import ChallengeBox from '../Components/ChallengeBox';
 import CountdownProvider from '../contexts/CountdownContext';
+import ChallengesProvider from '../contexts/ChallengesContext';
 
-const Home = () => {
+interface IndexProps {
+  level: number;
+  currentExperience: number;
+  challengesCompleted: number;
+}
+
+export default function Home({ level, currentExperience, challengesCompleted }: IndexProps) {
   const [theme, setTheme] = useState(light);
 
   function saveThemeLocalStorage(name: string) {
@@ -57,32 +65,48 @@ const Home = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
+      <ChallengesProvider
+        level={level}
+        currentExperience={currentExperience}
+        challengesCompleted={challengesCompleted}
+      >
+        <GlobalStyle />
 
-      <Container>
-        <Head>
-          <title>Início | GoAction</title>
-        </Head>
-        <ThemePallete toggleTheme={toggleTheme} />
-        <ExperienceBar />
+        <Container>
+          <Head>
+            <title>Início | GoAction</title>
+          </Head>
+          <ThemePallete toggleTheme={toggleTheme} />
+          <ExperienceBar />
 
-        <CountdownProvider>
-          <MainContent>
-            <LeftContent>
-              <Profile />
-              <CompletedChallenges />
-              <Countdown />
-            </LeftContent>
+          <CountdownProvider>
+            <MainContent>
+              <LeftContent>
+                <Profile />
+                <CompletedChallenges />
+                <Countdown />
+              </LeftContent>
 
-            <div>
-              <ChallengeBox />
-            </div>
-          </MainContent>
-        </CountdownProvider>
+              <div>
+                <ChallengeBox />
+              </div>
+            </MainContent>
+          </CountdownProvider>
 
-      </Container>
+        </Container>
+      </ChallengesProvider>
     </ThemeProvider>
   );
-};
+}
 
-export default Home;
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const { level, currentExperience, challengesCompleted } = ctx.req.cookies;
+
+  return {
+    props: {
+      level: Number(level),
+      currentExperience: Number(currentExperience),
+      challengesCompleted: Number(challengesCompleted),
+    },
+  };
+};
