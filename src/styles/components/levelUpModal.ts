@@ -1,4 +1,4 @@
-import styled, { ThemeConsumer } from 'styled-components';
+import styled from 'styled-components';
 
 export const Overlay = styled.div`
   background: rgba(242, 243, 245, 0.8);
@@ -37,7 +37,7 @@ export const Container = styled.div`
 
   > p {
     font-size: 1.25rem;
-    color: ${({ theme }) => theme.colors.text};
+    color: #666;
     margin-top: 0.25rem;
   }
 
