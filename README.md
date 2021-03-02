@@ -31,6 +31,8 @@ Nessa aplicação foram utilizados as seguintes tecnologias abaixo:
 
 - **React Js** — Uma biblioteca para construção de interfaces web
 - **Next Js** — Uma biblioteca feito em cima do ReactJS para construção de interfaces web
+- **Javascript** — Uma linguagem de programação utilizada tanto no cliente quanto no servidor
+- **Typescript** — Uma linguagem de programação/superset de typagem para a linguagem javascript
 - **Styled Components** - Um pacote que auxilia nas estilizações das páginas, permite escrever código CSS em arquivos javascript
 
 ## Getting started
